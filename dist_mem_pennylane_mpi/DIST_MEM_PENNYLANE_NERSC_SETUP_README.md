@@ -1,6 +1,6 @@
 # Ensure all necessary modules are loaded up-front
 
-module load PrgEnv-gnu cray-mpich cudatoolkit craype-accel-nvidia80 evp-patch gcc/11.2.0
+module load PrgEnv-gnu/8.3.3 cray-mpich/8.1.25 cudatoolkit/11.7 craype-accel-nvidia80 evp-patch gcc/11.2.0
 
 # Required due to a potentially missing lib for the CUDA-aware MPICH library
 
@@ -36,7 +36,7 @@ python -m pip install ./dist/*.whl
 
 # Grab an allocation for however many GPUs you want; I'd start with a single interactive node/4 GPUs
 
-salloc ...
+salloc -N 1 --qos interactive  --time 02:00:00 --gpus=4 --ntasks-per-node=4 --gpus-per-task=1 --constraint gpu --account=
 
 # and launch over multiple processes
 
