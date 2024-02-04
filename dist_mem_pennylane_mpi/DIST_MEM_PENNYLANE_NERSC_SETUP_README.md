@@ -8,7 +8,7 @@ export LD_LIBRARY_PATH=${CRAY_LD_LIBRARY_PATH}:/opt/cray/pe/mpich/8.1.25/ofi/gnu
 
 # Create a python virtualenv
 
-python -m venv pyenv
+conda create --prefix /pscratch/sd/p/<username>/py3117 python=3.11.7 
 
 # install the following dependencies
 
