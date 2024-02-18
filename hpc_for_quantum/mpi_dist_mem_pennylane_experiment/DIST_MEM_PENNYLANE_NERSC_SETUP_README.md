@@ -33,14 +33,21 @@ MPICC="cc -shared" python -m pip install --force --no-cache-dir --no-binary=mpi4
 
 # clone and checkout lightning.gpu at version 0.34.0
 git clone https://github.com/PennyLaneAI/pennylane-lightning.git
+
 cd pennylane-lightning && git checkout v0.34.0
+
 pip install -r requirements.txt
+
 PL_BACKEND="lightning_qubit" pip install -e . -vv
-python -m pip install wheel custatevec-cu11
+
 export CUQUANTUM_SDK=/pscratch/sd/p/<Username>/py3117/lib/python3.11/site-packages/cuquantum
+
 export LD_LIBRARY_PATH=/pscratch/sd/p/<Username>/py3117/lib/python3.11/site-packages/cuquantum/lib:$LD_LIBRARY_PATH
+
 PL_BACKEND="lightning_gpu" python -m pip install -e .
+
 CMAKE_ARGS="-DENABLE_MPI=ON"  PL_BACKEND="lightning_gpu" python -m pip install -e .
+
 
 # Grab an allocation for however many GPUs you want; I'd start with a single interactive node/4 GPUs
 
