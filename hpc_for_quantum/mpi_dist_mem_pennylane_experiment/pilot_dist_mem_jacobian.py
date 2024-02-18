@@ -2,7 +2,7 @@ import radical.pilot as rp
 import os, sys
 
 curr_script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
-SIM_SCRIPT = os.path.join(curr_script_dir, "../sim_scripts", "dist_mem_jacobian.py")
+SIM_SCRIPT = os.path.join(curr_script_dir, "./", "dist_mem_jacobian.py")
 
 # Define the details of the Perlmutter resource
 pd_init = {
