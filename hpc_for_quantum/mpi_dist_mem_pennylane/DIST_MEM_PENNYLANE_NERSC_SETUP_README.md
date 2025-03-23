@@ -23,6 +23,8 @@ export LD_LIBRARY_PATH=${CRAY_LD_LIBRARY_PATH}:/opt/cray/pe/mpich/8.1.25/ofi/gnu
 
 conda create --prefix $SCRATCH/py3117 python=3.11.7
 
+conda activate $SCRATCH/py3117
+
 # install the following dependencies
 
 python -m pip install cmake ninja custatevec-cu11 cuquantum-python-cu11 wheel pennylane~=0.35.0 pennylane-lightning~=0.35.0
